@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   runtimeConfig: {
-    navitiaToken: "",
+    public: {
+      navitiaToken: process.env.NAVITIA_TOKEN,
+      navitiaUrl: process.env.NAVITIA_URL,
+    },
   },
   devtools: { enabled: true },
   app: {

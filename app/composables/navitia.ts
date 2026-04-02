@@ -1,14 +1,15 @@
-export default async function (from: string, to: string) {
-  const config = useRuntimeConfig();
+export async function navitia() {
   const params = new URLSearchParams();
-  params.append("from", from);
-  params.append("to", to);
-  return await useFetch(
-    `https://api.navitia.io/v1/coverage/sandbox/journeys${params}`,
-    {
-      headers: {
-        Authorization: btoa(`${config.navitiaToken}:`),
-      },
-    },
-  );
+
+  params.append("from", "admin:fr:75056");
+  params.append("to", "admin:fr:69123");
+  params.append("datetime", "20260401T100936");
+
+  const { data, error } = await useFetch(`/api/navitia?${params}`);
+
+  if (error.value) {
+    throw error.value;
+  }
+
+  return data.value;
 }
