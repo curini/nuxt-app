@@ -1,7 +1,13 @@
 <script setup>
 import { navitia } from "~/composables/navitia";
-const journey = await navitia();
-console.log(journey);
+const { error, feed_publishers, context, links, notes, exceptions } =
+  await navitia();
+
+const getErrorMsg = error ? error.message : "";
 </script>
 
-<template>detail</template>
+<template>
+  <div v-if="getErrorMsg" class="alert alert-danger">
+    {{ getErrorMsg }}
+  </div>
+</template>
