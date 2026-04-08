@@ -1,0 +1,29 @@
+#my-btn-custom {
+  anchor-name: --btn-custom;
+  width: fit-content;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.3em;
+
+  &:hover {
+    background-color: grey;
+    color: black;
+    & + #label-my-btn-custom {
+      visibility: visible;
+    }
+  }
+}
+
+#label-my-btn-custom {
+  position-anchor: --btn-custom;
+  position: fixed;
+  margin: 2px;
+  position-area: top span-all;
+  background-color: white;
+  border: 1px dotted black;
+  padding: 2px;
+  position-visibility: no-overflow;
+  visibility: hidden;
+}

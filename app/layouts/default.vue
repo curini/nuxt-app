@@ -16,9 +16,9 @@ useSeoMeta({
 </style>
 
 <template>
-  <div>
-    <AppHeader />
+  <AppHeader />
+  <div class="content">
     <slot />
-    <AppFooter />
   </div>
+  <AppFooter />
 </template>
