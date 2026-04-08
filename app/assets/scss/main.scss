@@ -9,6 +9,11 @@ body {
   text-align: justify;
   max-width: 100%;
   font-size: 1rem;
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .content {
@@ -18,3 +23,4 @@ body {
 
 @import url("@/assets/scss/_nav.scss");
 @import url("@/assets/scss/_button.scss");
+@import url("@/assets/scss/_alert.scss");

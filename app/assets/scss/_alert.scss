@@ -1,0 +1,15 @@
+.alert {
+  background-color: grey;
+  border: 1px solid grey;
+  width: 100%;
+  color: black;
+  font-weight: 600;
+  padding: 0.2em;
+  margin-top: 2px;
+  margin-bottom: 2px;
+
+  &-danger {
+    background-color: red;
+    color: white;
+  }
+}
