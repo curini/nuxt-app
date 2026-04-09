@@ -18,7 +18,7 @@ export default defineEventHandler(async (event): Promise<PlacesResponse> => {
   } catch (error) {
     throw createError({
       status: 500,
-      statusMessage: "Service not available",
+      statusMessage: "Service Places is not available",
     });
   }
 });

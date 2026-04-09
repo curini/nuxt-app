@@ -18,7 +18,7 @@ export default defineEventHandler(async (event): Promise<JourneysResponse> => {
   } catch (error) {
     throw createError({
       status: 500,
-      statusMessage: "Service not available",
+      statusMessage: "Service Journeys is not available",
     });
   }
 });
