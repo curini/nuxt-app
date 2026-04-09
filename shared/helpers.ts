@@ -14,6 +14,17 @@ export function getTodayDateFormatted(): string {
   return year + month + day + "T" + hours + minutes + seconds;
 }
 
+export function getCssClassBackground(type: string): string {
+  if (type == "best") {
+    return "bg-green txt-white";
+  }
+  return "bg-grey txt-black";
+}
+
+export function getTransportModeIcon() {
+  return "";
+}
+
 function setNumberTo2Digit(myNumber: number): string {
   if (myNumber > 9) {
     return myNumber.toString();

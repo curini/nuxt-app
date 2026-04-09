@@ -1,15 +1,35 @@
-#my-btn-custom {
-  anchor-name: --btn-custom;
+@use "sass:color";
+
+@mixin button($color) {
   width: fit-content;
   cursor: pointer;
-  background-color: black;
-  color: white;
+  background-color: $color;
+  color: color.scale($color, $lightness: 90%);
   border: none;
-  padding: 0.3em;
+  height: 2em;
 
   &:hover {
-    background-color: grey;
-    color: black;
+    background-color: color.scale($color, $lightness: 60%);
+    color: $color;
+  }
+}
+
+.btn {
+  @include button(blue);
+
+  &.green {
+    @include button(green);
+  }
+  &.red {
+    @include button(red);
+  }
+}
+
+#my-btn-custom {
+  @include button(black);
+  anchor-name: --btn-custom;
+
+  &:hover {
     & + #label-my-btn-custom {
       visibility: visible;
     }
