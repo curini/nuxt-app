@@ -41,6 +41,11 @@ function searchPlacesForDeparture() {
           v-model="form.from"
           @keydown="searchPlacesForDeparture"
         />
+        <ul v-if="fromProposals">
+          <li v-for="place in fromProposals.places">
+            {{ place.name }}
+          </li>
+        </ul>
       </div>
       <div class="d-flex column">
         <label for="to" class="label">Arrivée</label>
