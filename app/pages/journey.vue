@@ -1,7 +1,6 @@
 <script setup>
 import { callJourneys, callPlaces } from "~/composables/navitia";
 import { getCssClassBackground } from "@@/shared/helpers";
-import { ref } from "vue";
 
 const form = ref({ from: "", to: "" });
 const { journeys: result, setJourneys } = callJourneys();
