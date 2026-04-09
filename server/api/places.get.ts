@@ -1,6 +1,6 @@
-import { JourneysResponse } from "@@/shared/types/journeys";
+import { PlacesResponse } from "@@/shared/types/places";
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<PlacesResponse> => {
   const query = getQuery(event);
   const params = new URLSearchParams(query as Record<string, string>);
   const config = useRuntimeConfig();
@@ -14,9 +14,7 @@ export default defineEventHandler(async (event) => {
       },
     });
 
-    const response: JourneysResponse = await request.json();
-
-    return response;
+    return await request.json();
   } catch (error) {
     throw createError({
       status: 500,

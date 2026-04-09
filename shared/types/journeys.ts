@@ -1,32 +1,25 @@
-export type JourneysResponse =
-  | { message: string }
-  | {
-      feed_publisher: Array<FeedPublisher>;
-      links: Array<Links>;
-      journeys: Array<Journey>;
-      tickets: Array<any>;
-      disruptions: Array<any>;
-      terminus: Array<Terminus>;
-      context: {
-        car_direct_path: {
-          co2_emission: Co2Emission;
-          air_pollutants: {
-            unit: string;
-            values: { nox: number; pm: number };
-          };
-        };
-        current_datetime: UTCDateTime;
-        timezone: string;
-      };
-      notes: Array<any>;
-      exceptions: Array<any>;
-    };
+import type { FeedPublisher } from "./feed-publisher";
 
-type FeedPublisher = {
-  id: string;
-  name: string;
-  license: string;
-  url: string;
+export type JourneysResponse = {
+  feed_publisher: Array<FeedPublisher>;
+  links: Array<Links>;
+  journeys: Array<Journey>;
+  tickets: Array<any>;
+  disruptions: Array<any>;
+  terminus: Array<Terminus>;
+  context: {
+    car_direct_path: {
+      co2_emission: Co2Emission;
+      air_pollutants: {
+        unit: string;
+        values: { nox: number; pm: number };
+      };
+    };
+    current_datetime: UTCDateTime;
+    timezone: string;
+  };
+  notes: Array<any>;
+  exceptions: Array<any>;
 };
 
 type Links = {
