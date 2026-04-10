@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .input {
   border: 1px solid black;
   border-radius: 5px;
@@ -10,4 +12,22 @@
 
 .label {
   font-weight: 700;
+  height: 20px;
+}
+
+.list-proposals {
+  background-color: white;
+  color: black;
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+  border: 1px solid #ddd;
+}
+
+.proposal {
+  cursor: pointer;
+  padding: 2px;
+  &:hover {
+    background-color: color.scale(#333, $lightness: 90%);
+  }
 }

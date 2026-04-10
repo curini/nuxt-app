@@ -43,9 +43,13 @@ export function callJourneys() {
 export function callPlaces() {
   const places = ref<PlacesResponse | null>(null);
 
+  function reinitPlaces() {
+    places.value = null;
+  }
+
   async function setPlaces(payload: PlacesParameters) {
     places.value = await navitia<PlacesResponse>("places", payload);
   }
 
-  return { places, setPlaces };
+  return { places, setPlaces, reinitPlaces };
 }
