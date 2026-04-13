@@ -23,10 +23,12 @@ export type JourneysResponse = {
 };
 
 type Links = {
-  href: string;
-  templated: boolean;
-  rel: string;
+  href?: string;
+  templated?: boolean;
+  rel?: string;
+  internal?: boolean;
   type: string;
+  id: string;
 };
 
 /**
@@ -92,13 +94,13 @@ type Coord = {
   lat: string;
 };
 
-type Sections = {
+export type Sections = {
   id: string;
   duration: number;
   co2_emission: Co2Emission;
   departure_date_time: UTCDateTime;
   arrival_date_time: UTCDateTime;
-  to: {
+  to?: {
     id: string;
     name: string;
     quality: number;
@@ -152,9 +154,22 @@ type Sections = {
     coordinates: [number, number];
     properties: Array<{ length: number }>;
   };
-  mode: string;
+  display_informations?: {
+    commercial_mode: string;
+    network: string;
+    direction: string;
+    label: string;
+    code: string;
+    headsign: string;
+    name: string;
+    company: string;
+    description: string;
+    physical_mode: string;
+    links: Array<Links>;
+  };
+  mode?: string;
   type: string;
-  links: Array<any>;
+  links: Array<Links>;
 };
 
 type Codes = {

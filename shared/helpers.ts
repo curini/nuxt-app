@@ -1,3 +1,5 @@
+import type { Sections } from "@@/shared/types/journeys";
+
 /**
  * getTodayDateFormatted
  * example "20260409T100936"
@@ -94,8 +96,32 @@ export function getCssClassBackground(type: string): string {
   return "bg-grey txt-black";
 }
 
-export function getTransportModeIcon() {
-  return "";
+/**
+ * @param number time example 10560
+ * @returns string example 02:55:48
+ */
+export function convertSecondsToTime(time: number) {
+  const calcH = time / 3600;
+  const hours = Math.trunc(calcH);
+  const calcM = (calcH - hours) * 60;
+  const minutes = Math.trunc(calcM);
+  const seconds = Math.trunc(calcM - minutes);
+  return (
+    setNumberTo2Digit(hours) +
+    ":" +
+    setNumberTo2Digit(minutes) +
+    ":" +
+    setNumberTo2Digit(seconds)
+  );
+}
+
+export function getTransportModeIcon(section: Sections): string {
+  if (section.type === "waiting") {
+    return "icon icon-waiting";
+  } else if (section.type === "public_transport") {
+    return "icon icon-public-transport";
+  }
+  return "icon icon-walking";
 }
 
 function setNumberTo2Digit(myNumber: number): string {

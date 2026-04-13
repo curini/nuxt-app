@@ -1,9 +1,11 @@
+@use "sass:color";
+
 .bg-green {
-  background-color: green;
+  background-color: rgba(21, 177, 16, 0.5);
 }
 
 .bg-grey {
-  background-color: grey;
+  background-color: rgba(49, 48, 48, 0.5);
 }
 
 .txt-white {
@@ -12,4 +14,24 @@
 
 .txt-black {
   color: black;
+}
+
+.tags {
+  border-radius: 5px;
+  padding: 3px;
+  border: 1px solid;
+
+  &-blue {
+    background: blue;
+    color: white;
+  }
+}
+
+.border {
+  &.bg-green {
+    border: 1px solid color.scale(green, $lightness: 40%);
+  }
+  &.bg-grey {
+    border: 1px solid color.scale(grey, $lightness: 40%);
+  }
 }
